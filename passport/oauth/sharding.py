@@ -27,7 +27,7 @@ class OauthShardingUtil(object):
         """
         vnode = self.get_vnode()
         #这里的规则可以根据分表的情况调整, 当前只有一张表(1个model)
-        if vnode > 0 and vnode <= 1023:
+        if vnode >= 0 and vnode <= 1023:
             return "OAuthUser_0"
         raise OauthShardingException("OauthShardingUtil get_node error. vnode %s" % vnode)
 
